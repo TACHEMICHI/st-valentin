@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Déclaration</title>
+<style>
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+  background: rgb(104, 13, 13);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.container{
+  display: grid;
+  grid-template-columns: repeat(3, 120px);
+  grid-template-rows: repeat(2, 120px);
+  gap: 30px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.photo{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.centre{
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  animation: pulse 2s infinite;
+}
+
+h3{
+  color: white;
+  margin-top: 40px;
+  font-size: 22px;
+  text-align: center;
+  max-width: 90%;
+}
+
+@keyframes pulse{
+  0%,100%{transform: scale(1);}
+  50%{transform: scale(1.2);}
+}
+
+@media (max-width: 600px){
+  .container{
+    grid-template-columns: repeat(2, 100px);
+    gap: 20px;
+  }
+  h3{
+    font-size: 18px;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <img src="8.jpg" class="photo">
+  <img src="8.jpg" class="photo">
+  <img src="12.jpg" class="photo centre">
+</div>
+
+<h3 id="message"></h3>
+
+<script>
+const phrases = [
+  "Depuis que tu es entrée dans ma vie, chaque jour a pris un sens nouveau.",
+  "Tu es mon endroit préféré, même quand je suis loin de tout.",
+  "Je ne te promets pas la perfection, mais un amour sincère et fidèle.",
+  "Ton sourire est la plus belle chose qui soit arrivée à mon cœur.",
+  "Je t’aime non seulement pour ce que tu es, mais pour ce que je deviens avec toi.",
+  "Si l’amour avait un visage, il porterait le tien.",
+  "Chaque battement de mon cœur murmure ton prénom.",
+  "Avec toi, même le silence devient doux.",
+  "Tu es la plus belle réponse à toutes mes prières.",
+  "Je te choisirais encore, dans cette vie et dans toutes les autres."
+];
+
+const declaration = document.getElementById('message');
+const compte = Math.floor(Math.random() * phrases.length);
+declaration.textContent = phrases[compte];
+</script>
+</body>
+</html>
